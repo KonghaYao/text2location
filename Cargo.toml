@@ -1,0 +1,9 @@
+[package]
+name = "text2location"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tantivy = "0.25.0"
+tantivy-jieba = "0.17.0"
+anyhow = "1.0"
