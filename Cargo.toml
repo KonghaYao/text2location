@@ -7,3 +7,12 @@ edition = "2021"
 tantivy = "0.25.0"
 tantivy-jieba = "0.17.0"
 anyhow = "1.0"
+csv = "1.4.0"
+serde = { version = "1.0.228", features = ["derive"] }
+
+[build-dependencies]
+tantivy = "0.25.0"
+tantivy-jieba = "0.17.0"
+anyhow = "1.0"
+csv = "1.4.0"
+serde = { version = "1.0.228", features = ["derive"] }
