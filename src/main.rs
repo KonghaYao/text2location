@@ -33,10 +33,9 @@ fn resolve_address(
     (province, city, district, county)
 }
 
-fn build_index(address_index: &AddressIndex) -> anyhow::Result<()> {
+fn build_index(address_index: &AddressIndex, csv_path: &str) -> anyhow::Result<()> {
     // 加载 CSV 数据
     println!("正在加载 CSV 数据...");
-    let csv_path = "./src/areas.csv"; // 假设文件名为 areas.csv
     let regions = load_regions(csv_path)?;
 
     println!("读取到 {} 条记录，正在构建索引...", regions.len());
@@ -56,10 +55,12 @@ fn build_index(address_index: &AddressIndex) -> anyhow::Result<()> {
 }
 
 fn main() -> anyhow::Result<()> {
+    let csv_path = "./src/areas.csv";
+
     // 创建地址索引（使用默认权重）
     let mut address_index = AddressIndex::new()?;
 
-    if let Err(e) = build_index(&address_index) {
+    if let Err(e) = build_index(&address_index, csv_path) {
         panic!("加载 CSV 失败: {}", e);
     }
 
